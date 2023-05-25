@@ -3,17 +3,16 @@ package Sorting;
 import FileReader.Freader;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Sort_Array {
-    private final int[] Unsorted_Array;
+    private int[] Unsorted_Array;
     public Sort_Array(String filename)
     {
         this.Unsorted_Array= Freader.read(filename);
     }
     public Object Simple_Sort(boolean choice)
     {
-        return bubble_sort(this.Unsorted_Array,choice);
+        return bubble_sort(this.Unsorted_Array.clone(),choice);
     }
     private Object bubble_sort(int[] unsorted,boolean choice)
     {
