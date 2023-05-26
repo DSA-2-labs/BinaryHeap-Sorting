@@ -43,9 +43,12 @@ public class Sort_Array {
                 right[i]=unsorted[i+mid+1];
             }
             merge(unsorted,left,right,l);
-
+            list.add(unsorted.clone());
         }
-        return choice ? list.get(list.size()-1) : list.toArray(new int[0][]);
+        if(l==0&&r==unsorted.length-1)
+            return choice ? list.get(list.size()-1) : list.toArray(new int[0][]);
+        else
+            return unsorted;
     }
     public void merge(int[] unsorted,int[] left,int[] right,int l){
         int nl= left.length;
@@ -69,7 +72,6 @@ public class Sort_Array {
             unsorted[k]=right[j];
             k++;j++;
         }
-        list.add(unsorted.clone());
     }
 
     private void swap(int index,int[] arr)
@@ -80,7 +82,7 @@ public class Sort_Array {
     }
 
     public static void main(String[] args) {
-        Sort_Array s = new Sort_Array("/home/mahmoud/Heap/3bt.txt");
+        Sort_Array s = new Sort_Array("/home/exception/Heap/3bt.txt");
         Object arr = s.Simple_Sort(false);
         if (arr instanceof int[])
         {
