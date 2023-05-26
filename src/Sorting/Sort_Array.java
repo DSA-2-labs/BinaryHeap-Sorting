@@ -13,6 +13,10 @@ public class Sort_Array {
     }
     public Object Simple_Sort(boolean choice)
     {
+        return bubble_sort(this.Unsorted_Array.clone(),choice);
+    }
+    public Object Efficient_Sort(boolean choice)
+    {
         return merge_sort(this.Unsorted_Array.clone(),choice,0,this.Unsorted_Array.length-1);
     }
     private Object bubble_sort(int[] unsorted,boolean choice)
@@ -21,7 +25,7 @@ public class Sort_Array {
         for (int i = unsorted.length; i > 1; i--)
         {
             for (int j = 0; j < i-1; j++) {
-                if (unsorted[j] > unsorted[j + 1])
+                if (unsorted[j] < unsorted[j + 1])
                     swap(j, unsorted);
             }
             list.add(unsorted.clone());
@@ -55,7 +59,7 @@ public class Sort_Array {
         int nr= right.length;
         int k=l,i=0,j=0;
         while(i<nl&&j<nr){
-            if(left[i]<right[j]){
+            if(left[i]>right[j]){
                 unsorted[k]=left[i];
                 k++;i++;
             }
@@ -82,8 +86,9 @@ public class Sort_Array {
     }
 
     public static void main(String[] args) {
-        Sort_Array s = new Sort_Array("/home/exception/Heap/3bt.txt");
-        Object arr = s.Simple_Sort(false);
+        Sort_Array s = new Sort_Array("/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/test1.txt");
+        Object arr = s.Efficient_Sort(false);
+//        Object arr = s.Simple_Sort(false);
         if (arr instanceof int[])
         {
             for (int i:(int[])arr) {
