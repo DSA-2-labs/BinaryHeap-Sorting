@@ -31,8 +31,9 @@ public class cli {
             System.out.println("1- Simple Sorting algorithm");
             System.out.println("2- Efficient Sorting algorithm");
             System.out.println("3- Non-Comparison Sorting algorithm");
-            System.out.println("4- another input File");
-            System.out.println("5- Exit");
+            System.out.println("4- Heap Sort Algorithm");
+            System.out.println("5- another input File");
+            System.out.println("6- Exit");
             choice = scan.nextInt();
             switch (choice)
             {
@@ -51,26 +52,50 @@ public class cli {
                         }
                     }
                 }
-//                case 2 -> {
-//                    int c=return_type();
-//                    switch (c)
-//                    {
-//                        case 1->{}
-//                        case 2->{}
-//                        case 3->{}
-//                    }
-//                }
-//                case 3 -> {
-//                    int c=return_type();
-//                    switch (c)
-//                    {
-//                        case 1->{}
-//                        case 2->{}
-//                        case 3->{}
-//                    }
-//                }
-                case 4 -> i();
-                case 5 -> System.exit(0);
+                case 2 -> {
+                    int c=return_type();
+                    switch (c)
+                    {
+                        case 1->print1d((int[]) s.Efficient_Sort(true));
+                        case 2->print2d((int[][]) s.Efficient_Sort(false));
+                        case 3->{
+                            System.out.println("The intermediate arrays: ");
+                            print2d((int[][]) s.Efficient_Sort(false));
+                            System.out.println("The final sorted array: ");
+                            print1d((int[]) s.Efficient_Sort(true));
+                        }
+                    }
+                }
+                case 3 -> {
+                    int c=return_type();
+                    switch (c)
+                    {
+                        case 1->print1d((int[]) s.countSort(true));
+                        case 2->print2d((int[][]) s.countSort(false));
+                        case 3->{
+                            System.out.println("The intermediate arrays: ");
+                            print2d((int[][]) s.countSort(false));
+                            System.out.println("The final sorted array: ");
+                            print1d((int[]) s.countSort(true));
+                        }
+                    }
+                }
+                case 4 -> {
+                    int c=return_type();
+                    switch (c)
+                    {
+                        case 1->print1d((int[]) s.heapSort(true));
+                        case 2->print2d((int[][]) s.heapSort(false));
+                        case 3->{
+                            System.out.println("The intermediate arrays: ");
+                            print2d((int[][]) s.heapSort(false));
+                            System.out.println("The final sorted array: ");
+                            print1d((int[]) s.heapSort(true));
+                        }
+                    }
+                }
+                case 5 -> i();
+                case 6 -> System.exit(0);
                 default -> System.out.println("enter valid choice");
             }
         }while (true);
