@@ -9,13 +9,19 @@ public class Main {
     public static void main(String[] args) {
 //        cli c = new cli();
 //        c.i();
-        MaxHeap heap = new MaxHeap(100);
         int x[] = {0,0,8,0,1,50000,3,2,-1};
+        MaxHeap heap = new MaxHeap(x,100);
+
         List<int[]> list = new ArrayList<>();
         heap.HeapSort(x, list);
+
         for(int i=0 ; i<x.length ; i++){
             System.out.print(x[i]+" ");
         }
+//        heap.printHeap();
+
+
+
         //heap.printHeap();
         //System.out.println(heap.extractMax());
 //        Sort_Array s = new Sort_Array("arr1.txt");
