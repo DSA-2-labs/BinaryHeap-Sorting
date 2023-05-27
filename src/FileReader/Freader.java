@@ -24,7 +24,7 @@ public class Freader {
                 list[i] = listread.get(i);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException();
         }
         return list;
     }

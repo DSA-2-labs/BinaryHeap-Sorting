@@ -42,7 +42,7 @@ public class Sort_Array {
      * @param choice whether to return the final sorted array or the intermediate results
      * @return the final sorted array if choice true, the intermediate arrays otherwise.
      */
-    public Object nonComparisonSort(boolean choice) throws ArrayIndexOutOfBoundsException{
+    public Object nonComparisonSort(boolean choice) throws ArrayIndexOutOfBoundsException, NegativeArraySizeException{
         if (this.arr.length == 0) throw new ArrayIndexOutOfBoundsException();
         this.list = new ArrayList<>();
         return countSort(this.arr.clone(), choice);
@@ -123,7 +123,7 @@ public class Sort_Array {
         arr[index + 1]=temp;
     }
 
-    private Object countSort(int[] arr, boolean choice) {
+    private Object countSort(int[] arr, boolean choice) throws NegativeArraySizeException{
         int k = arr[0], normalize = 0;
         for (int i: arr) {
             k = Math.max(k, i);
@@ -131,6 +131,7 @@ public class Sort_Array {
         }
         normalize = Math.abs(normalize);
         int newK = k + normalize;
+        if(newK < 0) throw new NegativeArraySizeException();
         int[] count = new int[newK + 1];
         for (int i : arr) {
             count[i + normalize]++;
@@ -145,25 +146,5 @@ public class Sort_Array {
         }
         System.arraycopy(sorted, 0, arr, 0, arr.length);
         return choice? arr : list.toArray(new int[0][]);
-    }
-    public static void main(String[] args) {
-        Sort_Array s = new Sort_Array("C:\\Users\\Dell\\Desktop\\arr3.txt");
-        Object arr = s.nonComparisonSort( true);
-//        Object arr = s.Simple_Sort(false);
-//        System.out.println(Integer.MIN_VALUE);
-        if (arr instanceof int[]) {
-            for (int i:(int[])arr) {
-                System.out.print(i + " ");
-            }
-        }
-        else
-        {
-            for (int[] A:(int[][]) arr) {
-                for (int i:A) {
-                    System.out.print(i+" ");
-                }
-                System.out.println();
-            }
-        }
     }
 }

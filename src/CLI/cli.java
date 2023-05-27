@@ -11,6 +11,13 @@ public class cli {
         boolean valid = false;
         System.out.println("Enter the path of desired file that contains the list: ");
         String filename = scan.nextLine();
+        Sort_Array s = null;
+        try {
+            s = new Sort_Array(filename);
+        } catch (RuntimeException e) {
+            System.err.println("File not found");
+            i();
+        }
         int choice;
         while (!valid)
         {
@@ -22,11 +29,11 @@ public class cli {
             {
                 case 1 -> valid=true;
                 case 2 -> System.exit(0);
-                default -> System.out.println("Enter a valid choice");
+                default -> System.err.println("Enter a valid choice");
             }
         }
-        Sort_Array s = new Sort_Array(filename);
         do {
+            assert s != null;
             System.out.println("choose 1,2,3,4 or 5");
             System.out.println("1- Simple Sorting algorithm");
             System.out.println("2- Efficient Sorting algorithm");
@@ -68,17 +75,24 @@ public class cli {
                 }
                 case 3 -> {
                     int c=return_type();
-                    switch (c)
-                    {
-                        case 1->print1d((int[]) s.nonComparisonSort(true));
-                        case 2->print2d((int[][]) s.nonComparisonSort(false));
-                        case 3->{
-                            System.out.println("The intermediate arrays: ");
-                            print2d((int[][]) s.nonComparisonSort(false));
-                            System.out.println("The final sorted array: ");
-                            print1d((int[]) s.nonComparisonSort(true));
+                    try {
+                        switch (c)
+                        {
+                            case 1->print1d((int[]) s.nonComparisonSort(true));
+                            case 2->print2d((int[][]) s.nonComparisonSort(false));
+                            case 3->{
+                                System.out.println("The intermediate arrays: ");
+                                print2d((int[][]) s.nonComparisonSort(false));
+                                System.out.println("The final sorted array: ");
+                                print1d((int[]) s.nonComparisonSort(true));
+                            }
                         }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        System.err.println("Array is empty");
+                    } catch (NegativeArraySizeException e) {
+                        System.err.println("Maximum Count Array Size Exceeded");
                     }
+
                 }
                 case 4 -> {
                     int c=return_type();
