@@ -33,8 +33,8 @@ public class MaxHeap {
             maxHeapifyDown(i);
         }
     }
-    private MaxHeap(int[] arr, int maxSize, String sort) {
-        this.maxSize = maxSize;
+    private MaxHeap(int[] arr) {
+        this.maxSize = arr.length;
         this.size = arr.length;
         heapArray = arr;
         for(int i = size - 1; i >= 0; i--){
@@ -80,7 +80,7 @@ public class MaxHeap {
     public static void HeapSort(int[] arr, List<int[]> steps) {
         steps.add(arr.clone());
         if (arr.length == 0) return;
-        MaxHeap maxHeap = new MaxHeap(arr, arr.length,"sort");
+        MaxHeap maxHeap = new MaxHeap(arr);
         for(int i=0 ; i < arr.length ; i++){
             maxHeap.extractMax();
             steps.add(arr.clone());
