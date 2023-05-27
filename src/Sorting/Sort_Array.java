@@ -61,14 +61,20 @@ public class Sort_Array {
 
     private Object bubbleSort(int[] unsorted, boolean choice) {
         list.add(unsorted.clone());
+        boolean noSwap = false;
         for (int i = unsorted.length; i > 1; i--) {
             for (int j = 0; j < i-1; j++) {
                 if (unsorted[j] > unsorted[j + 1])
-                    swap(j, unsorted);
+                {
+                    swap(j, unsorted);noSwap=true;
+                }
             }
+            if(!noSwap)
+                return choice ? unsorted : list.toArray(new int[0][]);
+            noSwap=false;
             list.add(unsorted.clone());
         }
-        return choice ? list.get(list.size()-1) : list.toArray(new int[0][]);
+        return choice ? unsorted : list.toArray(new int[0][]);
     }
 
     private Object mergeSort(int[] unsorted,boolean choice,int l,int r) {
