@@ -117,14 +117,14 @@ public class cli {
     private void print1d(int[] arr)
     {
         for (int i:arr)
-            System.out.print(i+" ");
+            System.out.print(i + " ");
         System.out.println();
     }
     private void print2d(int[][] arr)
     {
         for (int[] A: arr) {
             for (int i:A) {
-                System.out.print(i+" ");
+                System.out.print(i + " ");
             }
             System.out.println();
         }
