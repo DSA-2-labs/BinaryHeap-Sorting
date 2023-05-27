@@ -125,24 +125,23 @@ public class Sort_Array {
     }
 
     private Object countSort(int[] arr, boolean choice) throws NegativeArraySizeException{
-        int k = arr[0], normalize = 0;
+        int max = arr[0], min = arr[0];
         for (int i: arr) {
-            k = Math.max(k, i);
-            normalize = Math.min(normalize, i); // in case of negative values
+            max = Math.max(max, i);
+            min = Math.min(min, i);
         }
-        normalize = Math.abs(normalize);
-        int newK = k + normalize;
-        if(newK < 0) throw new NegativeArraySizeException();
-        int[] count = new int[newK + 1];
+        int range = max - min + 1;
+        if(range < 0) throw new NegativeArraySizeException();
+        int[] count = new int[range];
+        int[] sorted = new int[arr.length];
         for (int i : arr) {
-            count[i + normalize]++;
+            count[i - min]++;
         }
-        for (int i = 1; i <= newK; i++) {
+        for (int i = 1; i < range; i++) {
             count[i] += count[i - 1];
         }
-        int[] sorted = new int[arr.length];
         for (int i = arr.length - 1; i >= 0; i--) {
-            sorted[--count[arr[i] + normalize]] = arr[i];
+            sorted[--count[arr[i] - min]] = arr[i];
             list.add(sorted.clone());
         }
         System.arraycopy(sorted, 0, arr, 0, arr.length);
