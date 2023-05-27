@@ -4,7 +4,7 @@ import javax.naming.SizeLimitExceededException;
 import java.util.List;
 
 public class MaxHeap {
-    private  int[] heapArray; // the array representing the heap
+    private final int[] heapArray; // the array representing the heap
     private final int maxSize; // max size for the heap
     private int size; // the current size of heap
 
@@ -26,7 +26,6 @@ public class MaxHeap {
     public MaxHeap(int[] arr, int maxSize) {
         this.maxSize = maxSize;
         this.size = arr.length;
-//        heapArray = arr;
         heapArray = new int[maxSize];
         System.arraycopy(arr,0,heapArray,0,size);
         for(int i = size - 1; i >= 0; i--){
@@ -79,7 +78,7 @@ public class MaxHeap {
      */
     public static void HeapSort(int[] arr, List<int[]> steps) {
         steps.add(arr.clone());
-        if (arr.length == 0) return;
+        if (arr.length == 0 || arr.length == 1) return;
         MaxHeap maxHeap = new MaxHeap(arr);
         for(int i=0 ; i < arr.length ; i++){
             maxHeap.extractMax();

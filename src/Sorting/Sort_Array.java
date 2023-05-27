@@ -72,6 +72,7 @@ public class Sort_Array {
     }
 
     private Object mergeSort(int[] unsorted,boolean choice,int l,int r) {
+        list.add(unsorted);
         if(l<r){
             int mid=(l+r)/2;
             mergeSort(unsorted,choice,l,mid);
@@ -88,7 +89,7 @@ public class Sort_Array {
             list.add(unsorted.clone());
         }
         if(l==0&&r==unsorted.length-1)
-            return choice ? list.get(list.size()-1) : list.toArray(new int[0][]);
+            return choice ? unsorted : list.toArray(new int[0][]);
         else
             return unsorted;
     }

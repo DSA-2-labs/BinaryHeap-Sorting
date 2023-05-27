@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Freader {
     public static int[] read(String fname)
     {
-        int[] list = null;
+        int[] list;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fname))) {
             ArrayList<Integer> listread=new ArrayList<>();
@@ -28,11 +28,4 @@ public class Freader {
         }
         return list;
     }
-
-//    public static void main(String[] args) {
-//        int[] arr = Freader.read("/home/mahmoud/Heap/3bt.txt");
-//        for (int i:arr) {
-//            System.out.println(i);
-//        }
-//    }
 }
