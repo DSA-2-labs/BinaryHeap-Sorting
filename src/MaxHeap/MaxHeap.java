@@ -1,8 +1,9 @@
 package MaxHeap;
 
 import javax.naming.SizeLimitExceededException;
+import java.util.List;
 
-public class maxHeap {
+public class MaxHeap {
     private final int[] heapArray; // the array representing the heap
     private final int maxSize; // max size for the heap
     private int size; // the current size of heap
@@ -11,7 +12,7 @@ public class maxHeap {
      * MaxHeap constructor
      * @param maxSize the maximum size of the heap
      */
-    public maxHeap(int maxSize) {
+    public MaxHeap(int maxSize) {
         this.maxSize = maxSize;
         heapArray = new int[maxSize];
         this.size = 0;
@@ -22,7 +23,7 @@ public class maxHeap {
      * @param arr the unsorted array to build the heap with
      * O(n)
      */
-    public maxHeap(int[] arr) {
+    public MaxHeap(int[] arr) {
         this.maxSize = arr.length;
         this.size = arr.length;
         heapArray = arr;
@@ -66,14 +67,13 @@ public class maxHeap {
      * heap sort in O(n lg n)
      * @param arr to sort it in place.
      */
-    public void HeapSort(int[] arr) {
+    public static void HeapSort(int[] arr, List<int[]> steps) {
+        steps.add(arr.clone());
         if (arr.length == 0) return;
-        maxHeap maxHeap = new maxHeap(arr);
+        MaxHeap maxHeap = new MaxHeap(arr);
         for(int i=0 ; i < arr.length ; i++){
             maxHeap.extractMax();
-        }
-        for(int i=0 ; i< arr.length/2 ; i++){
-            maxHeap.swap(i, arr.length-1-i);
+            steps.add(arr.clone());
         }
     }
 
