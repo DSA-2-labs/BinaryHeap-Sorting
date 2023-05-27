@@ -219,5 +219,4 @@ public class Tests {
         assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));
         assertArrayEquals(expected,(int[])sorting.heapSort(true));
     }
-
 }
