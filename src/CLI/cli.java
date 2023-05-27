@@ -42,13 +42,13 @@ public class cli {
                     int c=return_type();
                     switch (c)
                     {
-                        case 1->print1d((int[]) s.Simple_Sort(true));
-                        case 2->print2d((int[][]) s.Simple_Sort(false));
+                        case 1->print1d((int[]) s.simpleSort(true));
+                        case 2->print2d((int[][]) s.simpleSort(false));
                         case 3->{
                             System.out.println("The intermediate arrays: ");
-                            print2d((int[][]) s.Simple_Sort(false));
+                            print2d((int[][]) s.simpleSort(false));
                             System.out.println("The final sorted array: ");
-                            print1d((int[]) s.Simple_Sort(true));
+                            print1d((int[]) s.simpleSort(true));
                         }
                     }
                 }
@@ -56,13 +56,13 @@ public class cli {
                     int c=return_type();
                     switch (c)
                     {
-                        case 1->print1d((int[]) s.Efficient_Sort(true));
-                        case 2->print2d((int[][]) s.Efficient_Sort(false));
+                        case 1->print1d((int[]) s.efficientSort(true));
+                        case 2->print2d((int[][]) s.efficientSort(false));
                         case 3->{
                             System.out.println("The intermediate arrays: ");
-                            print2d((int[][]) s.Efficient_Sort(false));
+                            print2d((int[][]) s.efficientSort(false));
                             System.out.println("The final sorted array: ");
-                            print1d((int[]) s.Efficient_Sort(true));
+                            print1d((int[]) s.efficientSort(true));
                         }
                     }
                 }
@@ -70,13 +70,13 @@ public class cli {
                     int c=return_type();
                     switch (c)
                     {
-                        case 1->print1d((int[]) s.countSort(true));
-                        case 2->print2d((int[][]) s.countSort(false));
+                        case 1->print1d((int[]) s.nonComparisonSort(true));
+                        case 2->print2d((int[][]) s.nonComparisonSort(false));
                         case 3->{
                             System.out.println("The intermediate arrays: ");
-                            print2d((int[][]) s.countSort(false));
+                            print2d((int[][]) s.nonComparisonSort(false));
                             System.out.println("The final sorted array: ");
-                            print1d((int[]) s.countSort(true));
+                            print1d((int[]) s.nonComparisonSort(true));
                         }
                     }
                 }

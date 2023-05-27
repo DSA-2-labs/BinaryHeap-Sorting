@@ -6,26 +6,62 @@ import MaxHeap.MaxHeap;
 import java.util.ArrayList;
 
 public class Sort_Array {
-    private final int[] arr;
-    private final ArrayList<int[]> list = new ArrayList<>();
-    public Sort_Array(String filename)
-    {
+    private final int[] arr; // the array to be sorted
+    private ArrayList<int[]> list; // the intermediate arrays
+
+    /**
+     * Sort_Array constructor
+     * @param filename the file to read the array
+     */
+    public Sort_Array(String filename) {
         this.arr= Freader.read(filename);
     }
-    public Object Simple_Sort(boolean choice)
-    {
-        list.clear();
-        return bubble_sort(this.arr.clone(),choice);
+
+    /**
+     * Simple sort algorithm in O(n^2) implementing bubble sort
+     * @param choice whether to return the final sorted array or the intermediate results
+     * @return the final sorted array if choice true, the intermediate arrays otherwise.
+     */
+    public Object simpleSort(boolean choice) {
+        this.list = new ArrayList<>();
+        return bubbleSort(this.arr.clone(), choice);
     }
-    public Object Efficient_Sort(boolean choice)
-    {
-        list.clear();
-        return merge_sort(this.arr.clone(),choice,0,this.arr.length-1);
+
+    /**
+     * Efficient sort algorithm in O(n lg n) implementing merge sort
+     * @param choice whether to return the final sorted array or the intermediate results
+     * @return the final sorted array if choice true, the intermediate arrays otherwise.
+     */
+    public Object efficientSort(boolean choice) {
+        this.list = new ArrayList<>();
+        return mergeSort(this.arr.clone(),choice,0,this.arr.length-1);
     }
-    private Object bubble_sort(int[] unsorted,boolean choice) {
+
+    /**
+     * Non comparison sort algorithm in O(n) implementing count sort
+     * @param choice whether to return the final sorted array or the intermediate results
+     * @return the final sorted array if choice true, the intermediate arrays otherwise.
+     */
+    public Object nonComparisonSort(boolean choice) throws ArrayIndexOutOfBoundsException{
+        if (this.arr.length == 0) throw new ArrayIndexOutOfBoundsException();
+        this.list = new ArrayList<>();
+        return countSort(this.arr.clone(), choice);
+    }
+
+    /**
+     * Heap sort algorithm in O(n lg n) using Max Heap
+     * @param choice whether to return the final sorted array or the intermediate results
+     * @return the final sorted array if choice true, the intermediate arrays otherwise.
+     */
+    public Object heapSort(boolean choice) {
+        this.list = new ArrayList<>();
+        MaxHeap.HeapSort(this.arr.clone(), list);
+        return choice? list.get(list.size() - 1) : list.toArray(new int[0][]);
+    }
+
+    private Object bubbleSort(int[] unsorted, boolean choice) {
         list.add(unsorted.clone());
-        for (int i = unsorted.length; i > 1; i--)
-        {
+        for (int i = unsorted.length; i > 1; i--) {
             for (int j = 0; j < i-1; j++) {
                 if (unsorted[j] > unsorted[j + 1])
                     swap(j, unsorted);
@@ -34,11 +70,12 @@ public class Sort_Array {
         }
         return choice ? list.get(list.size()-1) : list.toArray(new int[0][]);
     }
-    private Object merge_sort(int[] unsorted,boolean choice,int l,int r) {
+
+    private Object mergeSort(int[] unsorted,boolean choice,int l,int r) {
         if(l<r){
             int mid=(l+r)/2;
-            merge_sort(unsorted,choice,l,mid);
-            merge_sort(unsorted,choice,mid+1,r);
+            mergeSort(unsorted,choice,l,mid);
+            mergeSort(unsorted,choice,mid+1,r);
             int[] left=new int[mid-l+1];
             int[] right=new int[r-mid];
             for (int i = 0; i < left.length ; i++) {
@@ -55,6 +92,7 @@ public class Sort_Array {
         else
             return unsorted;
     }
+
     private void merge(int[] unsorted,int[] left,int[] right,int l) {
         int nl= left.length;
         int nr= right.length;
@@ -85,14 +123,47 @@ public class Sort_Array {
         arr[index + 1]=temp;
     }
 
-    public Object heapSort(boolean choice) {
-        list.clear();
-        MaxHeap.HeapSort(this.arr.clone(), list);
-        return choice? list.get(list.size()-1) : list.toArray(new int[0][]);
+    private Object countSort(int[] arr, boolean choice) {
+        int k = arr[0], normalize = 0;
+        for (int i: arr) {
+            k = Math.max(k, i);
+            normalize = Math.min(normalize, i); // in case of negative values
+        }
+        normalize = Math.abs(normalize);
+        int newK = k + normalize;
+        int[] count = new int[newK + 1];
+        for (int i : arr) {
+            count[i + normalize]++;
+        }
+        for (int i = 1; i <= newK; i++) {
+            count[i] += count[i - 1];
+        }
+        int[] sorted = new int[arr.length];
+        for (int i = arr.length - 1; i >= 0; i--) {
+            sorted[--count[arr[i] + normalize]] = arr[i];
+            list.add(sorted.clone());
+        }
+        System.arraycopy(sorted, 0, arr, 0, arr.length);
+        return choice? arr : list.toArray(new int[0][]);
     }
-
-    public Object countSort(boolean choice) { // unfinished
-        list.clear();
-        return choice? list.get(list.size()-1) : list.toArray(new int[0][]);
+    public static void main(String[] args) {
+        Sort_Array s = new Sort_Array("C:\\Users\\Dell\\Desktop\\arr3.txt");
+        Object arr = s.nonComparisonSort( true);
+//        Object arr = s.Simple_Sort(false);
+//        System.out.println(Integer.MIN_VALUE);
+        if (arr instanceof int[]) {
+            for (int i:(int[])arr) {
+                System.out.print(i + " ");
+            }
+        }
+        else
+        {
+            for (int[] A:(int[][]) arr) {
+                for (int i:A) {
+                    System.out.print(i+" ");
+                }
+                System.out.println();
+            }
+        }
     }
 }
