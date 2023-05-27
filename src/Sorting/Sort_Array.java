@@ -1,26 +1,26 @@
 package Sorting;
 
 import FileReader.Freader;
+import MaxHeap.MaxHeap;
 
 import java.util.ArrayList;
 
 public class Sort_Array {
-    private int[] Unsorted_Array;
+    private int[] arr;
     private ArrayList<int[]> list = new ArrayList<>();
     public Sort_Array(String filename)
     {
-        this.Unsorted_Array= Freader.read(filename);
+        this.arr= Freader.read(filename);
     }
     public Object Simple_Sort(boolean choice)
     {
-        return bubble_sort(this.Unsorted_Array.clone(),choice);
+        return bubble_sort(this.arr.clone(),choice);
     }
     public Object Efficient_Sort(boolean choice)
     {
-        return merge_sort(this.Unsorted_Array.clone(),choice,0,this.Unsorted_Array.length-1);
+        return merge_sort(this.arr.clone(),choice,0,this.arr.length-1);
     }
-    private Object bubble_sort(int[] unsorted,boolean choice)
-    {
+    private Object bubble_sort(int[] unsorted,boolean choice) {
         list.add(unsorted.clone());
         for (int i = unsorted.length; i > 1; i--)
         {
@@ -32,8 +32,7 @@ public class Sort_Array {
         }
         return choice ? list.get(list.size()-1) : list.toArray(new int[0][]);
     }
-    private Object merge_sort(int[] unsorted,boolean choice,int l,int r)
-    {
+    private Object merge_sort(int[] unsorted,boolean choice,int l,int r) {
         if(l<r){
             int mid=(l+r)/2;
             merge_sort(unsorted,choice,l,mid);
@@ -54,7 +53,7 @@ public class Sort_Array {
         else
             return unsorted;
     }
-    public void merge(int[] unsorted,int[] left,int[] right,int l){
+    private void merge(int[] unsorted,int[] left,int[] right,int l) {
         int nl= left.length;
         int nr= right.length;
         int k=l,i=0,j=0;
@@ -78,13 +77,20 @@ public class Sort_Array {
         }
     }
 
-    private void swap(int index,int[] arr)
-    {
+    private void swap(int index,int[] arr) {
         int temp = arr[index];
         arr[index]=arr[index + 1];
         arr[index + 1]=temp;
     }
 
+    public Object heapSort(boolean choice) {
+        MaxHeap.HeapSort(this.arr, list);
+        return choice? arr : list;
+    }
+
+    public Object countSort(boolean choice) { // unfinished
+        return choice? arr : list;
+    }
     public static void main(String[] args) {
         Sort_Array s = new Sort_Array("/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/test1.txt");
         Object arr = s.Efficient_Sort(false);
