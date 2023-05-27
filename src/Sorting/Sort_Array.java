@@ -95,25 +95,4 @@ public class Sort_Array {
         list.clear();
         return choice? list.get(list.size()-1) : list.toArray(new int[0][]);
     }
-//    public static void main(String[] args) {
-//        Sort_Array s = new Sort_Array("/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/test1.txt");
-//        Object arr = s.Efficient_Sort(false);
-////        Object arr = s.Simple_Sort(false);
-//        if (arr instanceof int[])
-//        {
-//            for (int i:(int[])arr) {
-//                System.out.print(i+" ");
-//            }
-//        }
-//        else
-//        {
-//            for (int[] A:(int[][]) arr) {
-//                for (int i:A) {
-//                    System.out.print(i+" ");
-//                }
-//                System.out.println();
-//            }
-//        }
-//    }
-
 }
