@@ -61,12 +61,17 @@ public class Sort_Array {
 
     private Object bubbleSort(int[] unsorted, boolean choice) {
         list.add(unsorted.clone());
-        for (int i = unsorted.length; i > 1; i--) {
+        boolean flag = true;
+        for (int i = unsorted.length; i > 1 && flag; i--) {
+            flag = false;
             for (int j = 0; j < i-1; j++) {
-                if (unsorted[j] > unsorted[j + 1])
+                if (unsorted[j] > unsorted[j + 1]) {
                     swap(j, unsorted);
+                    flag = true;
+                }
             }
-            list.add(unsorted.clone());
+            if(!choice)
+                list.add(unsorted.clone());
         }
         return choice ? list.get(list.size()-1) : list.toArray(new int[0][]);
     }
@@ -86,7 +91,8 @@ public class Sort_Array {
                 right[i]=unsorted[i+mid+1];
             }
             merge(unsorted,left,right,l);
-            list.add(unsorted.clone());
+            if(!choice)
+                list.add(unsorted.clone());
         }
         if(l==0&&r==unsorted.length-1)
             return choice ? unsorted : list.toArray(new int[0][]);
@@ -142,7 +148,8 @@ public class Sort_Array {
         }
         for (int i = arr.length - 1; i >= 0; i--) {
             sorted[--count[arr[i] - min]] = arr[i];
-            list.add(sorted.clone());
+            if(!choice)
+                list.add(sorted.clone());
         }
         System.arraycopy(sorted, 0, arr, 0, arr.length);
         return choice? arr : list.toArray(new int[0][]);
