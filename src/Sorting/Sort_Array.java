@@ -25,7 +25,7 @@ public class Sort_Array {
     public Object simpleSort(boolean choice) {
         this.list = new ArrayList<>();
         int[] unsorted = this.arr.clone();
-        if(!choice) list.add(unsorted);
+        if(!choice) list.add(unsorted.clone());
         bubbleSort(unsorted, choice);
         return choice? unsorted : list.toArray(new int[0][]);
     }
@@ -38,7 +38,7 @@ public class Sort_Array {
     public Object efficientSort(boolean choice) {
         this.list = new ArrayList<>();
         int[] unsorted = this.arr.clone();
-        if(!choice) list.add(unsorted);
+        if(!choice) list.add(unsorted.clone());
         mergeSort(unsorted, choice,0,this.arr.length-1);
         return choice? unsorted : list.toArray(new int[0][]);
     }
@@ -62,17 +62,18 @@ public class Sort_Array {
     public Object heapSort(boolean choice) {
         this.list = new ArrayList<>();
         int[] unsorted = this.arr.clone();
-        if(!choice) list.add(unsorted);
+        if(!choice) list.add(unsorted.clone());
         MaxHeap.HeapSort(unsorted, list, choice);
         return choice? unsorted : list.toArray(new int[0][]);
     }
 
     private void bubbleSort(int[] unsorted, boolean choice) {
         boolean flag = true;
-        for (int i = unsorted.length; i > 1 && flag; i--) {
+        for (int i = 0; i < unsorted.length - 1 && flag; i++) {
             flag = false;
-            for (int j = 0; j < i-1; j++) {
-                if (unsorted[j] > unsorted[j + 1]) {
+            for (int j = 0; j < unsorted.length - i -1; j++) {
+                if (unsorted[j] > unsorted[j + 1])
+                {
                     swap(j, unsorted);
                     flag = true;
                 }

@@ -7,9 +7,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertArrayEquals;
 
 public class Tests {
-    private final String test = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\tests\\";
-//    private final String test = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/";
-    private final String expect = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\Expected\\";
+    //private final String test = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\tests\\";
+    private final String test = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/";
+    //private final String expect = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\Expected\\";
+    private final String expect = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/Expected/";
     private int[] expected;
 
     private Sort_Array sorting;
