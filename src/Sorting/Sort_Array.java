@@ -24,7 +24,10 @@ public class Sort_Array {
      */
     public Object simpleSort(boolean choice) {
         this.list = new ArrayList<>();
-        return bubbleSort(this.arr.clone(), choice);
+        int[] unsorted = this.arr.clone();
+        if(!choice) list.add(unsorted);
+        bubbleSort(unsorted, choice);
+        return choice? unsorted : list.toArray(new int[0][]);
     }
 
     /**
@@ -34,7 +37,10 @@ public class Sort_Array {
      */
     public Object efficientSort(boolean choice) {
         this.list = new ArrayList<>();
-        return mergeSort(this.arr.clone(),choice,0,this.arr.length-1);
+        int[] unsorted = this.arr.clone();
+        if(!choice) list.add(unsorted);
+        mergeSort(unsorted, choice,0,this.arr.length-1);
+        return choice? unsorted : list.toArray(new int[0][]);
     }
 
     /**
@@ -56,12 +62,12 @@ public class Sort_Array {
     public Object heapSort(boolean choice) {
         this.list = new ArrayList<>();
         int[] unsorted = this.arr.clone();
+        if(!choice) list.add(unsorted);
         MaxHeap.HeapSort(unsorted, list, choice);
         return choice? unsorted : list.toArray(new int[0][]);
     }
 
-    private Object bubbleSort(int[] unsorted, boolean choice) {
-        list.add(unsorted.clone());
+    private void bubbleSort(int[] unsorted, boolean choice) {
         boolean flag = true;
         for (int i = unsorted.length; i > 1 && flag; i--) {
             flag = false;
@@ -74,54 +80,53 @@ public class Sort_Array {
             if(!choice)
                 list.add(unsorted.clone());
         }
-        return choice ? unsorted : list.toArray(new int[0][]);
     }
 
-    private Object mergeSort(int[] unsorted,boolean choice,int l,int r) {
-        list.add(unsorted);
-        if(l<r){
-            int mid=(l+r)/2;
-            mergeSort(unsorted,choice,l,mid);
-            mergeSort(unsorted,choice,mid+1,r);
-            merge(unsorted,l,mid,r);
+    private void mergeSort(int[] unsorted, boolean choice, int l, int r) {
+        if(l < r){
+            int mid = (l + r)/2;
+            mergeSort(unsorted, choice, l, mid);
+            mergeSort(unsorted, choice, mid + 1, r);
+            merge(unsorted, l, mid, r);
             if(!choice)
                 list.add(unsorted.clone());
         }
-        if(l==0&&r==unsorted.length-1)
-            return choice ? unsorted : list.toArray(new int[0][]);
-        else
-            return unsorted;
     }
 
     private void merge(int[] unsorted,int l,int mid,int r) {
-        int[] left=new int[mid-l+1];
-        int[] right=new int[r-mid];
-        for (int i = 0; i < left.length ; i++) {
-            left[i]=unsorted[i+l];
+        int leftSize = mid - l + 1;
+        int rightSize = r - mid;
+
+        int[] left = new int[leftSize];
+        int[] right = new int[rightSize];
+
+        for (int i = 0; i < leftSize; i++) {
+            left[i] = unsorted[l + i];
         }
-        for (int i = 0; i < right.length ; i++) {
-            right[i]=unsorted[i+mid+1];
+        for (int i = 0; i < rightSize; i++) {
+            right[i] = unsorted[mid + 1 + i];
         }
-        int nl= left.length;
-        int nr= right.length;
-        int k=l,i=0,j=0;
-        while(i<nl&&j<nr){
-            if(left[i] < right[j]){
-                unsorted[k]=left[i];
-                k++;i++;
+        int i = 0, j = 0, k = l;
+        while(i< leftSize && j < rightSize){
+            if(left[i] <= right[j]){
+                unsorted[k] = left[i];
+                i++;
             }
             else{
-                unsorted[k]=right[j];
-                k++;j++;
+                unsorted[k] = right[j];
+                j++;
             }
+            k++;
         }
-        while(i<nl){
+        while(i < leftSize){
             unsorted[k]=left[i];
-            k++;i++;
+            k++;
+            i++;
         }
-        while(j<nr){
-            unsorted[k]=right[j];
-            k++;j++;
+        while(j < rightSize){
+            unsorted[k] = right[j];
+            k++;
+            j++;
         }
     }
 
