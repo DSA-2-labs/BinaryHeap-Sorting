@@ -809,11 +809,11 @@ public class TimeAnalysis {
         long end7 = System.nanoTime();
         System.out.println("avg-500000 case merge sort: " + (((end7-start7)/40)*0.001) + " ms");
 
-        start7 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end7 = System.nanoTime();
-        System.out.println("avg-500000 case bubble sort: " + (((end7-start7)/40)*0.001) + " ms");
+//        start7 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end7 = System.nanoTime();
+//        System.out.println("avg-500000 case bubble sort: " + (((end7-start7)/40)*0.001) + " ms");
 
         start7 = System.nanoTime();
         for(int i = 0; i < 40; i++)
