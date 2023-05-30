@@ -1051,4 +1051,140 @@ public class TimeAnalysis {
         System.out.println();
         //--------------------------------------------------------------------------------
     }
+    public void HeapSort(){
+        long currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\avg\\Test10.txt\\");
+            x.heapSort(true);
+        }
+        long currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Avg = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        //////////////////////
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\avg\\Test100.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Avg = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        //////////////////////
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\avg\\Test1000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Avg = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        //////////////////////
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\avg\\Test10000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Avg = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        //////////////////////
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\avg\\Test100000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Avg = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        //////////////////////
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\avg\\Test1000000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Avg = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+
+        //////////////////////
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\best\\Test10.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Best = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\best\\Test100.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Best = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\best\\Test1000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Best = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\best\\Test10000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Best = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\best\\Test100000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Best = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\best\\Test1000000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Best = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        ////////////////////////////////////////////////////////////////////////////////
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\Test10.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Worst = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\Test100.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Worst = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\Test1000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Worst = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\Test10000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Worst = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\Test100000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Worst = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+        currentTimeMillis = System.currentTimeMillis();
+        for(int i=0 ; i<40 ; i++) {
+            Sort_Array x = new Sort_Array("C:\\Users\\DELL\\Desktop\\generate\\Test1000000.txt\\");
+            x.heapSort(true);
+        }
+        currentTimeMillis2 = System.currentTimeMillis();
+        System.out.println("Time Worst = "+(currentTimeMillis2-currentTimeMillis)/40.0);
+    }
 }

@@ -61,10 +61,8 @@ public class Sort_Array {
      */
     public Object heapSort(boolean choice) {
         this.list = new ArrayList<>();
-        int[] unsorted = this.arr.clone();
-        if(!choice) list.add(unsorted);
-        MaxHeap.HeapSort(unsorted, list, choice);
-        return choice? unsorted : list.toArray(new int[0][]);
+        MaxHeap.HeapSort(this.arr.clone(), list, choice);
+        return choice? list.get(list.size() - 1) : list.toArray(new int[0][]);
     }
 
     private void bubbleSort(int[] unsorted, boolean choice) {
