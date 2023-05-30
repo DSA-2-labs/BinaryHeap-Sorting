@@ -51,7 +51,9 @@ public class Sort_Array {
     public Object nonComparisonSort(boolean choice) throws ArrayIndexOutOfBoundsException, NegativeArraySizeException{
         if (this.arr.length == 0) throw new ArrayIndexOutOfBoundsException();
         this.list = new ArrayList<>();
-        return countSort(this.arr.clone(), choice);
+        int[] unsorted = this.arr.clone();
+        countSort(unsorted, choice);
+        return choice? unsorted : list.toArray(new int[0][]);
     }
 
     /**
@@ -136,7 +138,7 @@ public class Sort_Array {
         arr[index + 1]=temp;
     }
 
-    private Object countSort(int[] arr, boolean choice) throws NegativeArraySizeException{
+    private void countSort(int[] arr, boolean choice) throws NegativeArraySizeException{
         int max = arr[0], min = arr[0];
         for (int i: arr) {
             max = Math.max(max, i);
@@ -158,6 +160,5 @@ public class Sort_Array {
                 list.add(sorted.clone());
         }
         System.arraycopy(sorted, 0, arr, 0, arr.length);
-        return choice? arr : list.toArray(new int[0][]);
     }
 }
