@@ -82,7 +82,6 @@ public class Sort_Array {
                 list.add(unsorted.clone());
         }
     }
-
     private void mergeSort(int[] unsorted, boolean choice, int l, int r) {
         if(l < r){
             int mid = (l + r)/2;
