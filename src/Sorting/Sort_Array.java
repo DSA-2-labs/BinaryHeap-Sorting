@@ -55,7 +55,7 @@ public class Sort_Array {
      */
     public Object heapSort(boolean choice) {
         this.list = new ArrayList<>();
-        MaxHeap.HeapSort(this.arr.clone(), list);
+        MaxHeap.HeapSort(this.arr.clone(), list,choice);
         return choice? list.get(list.size() - 1) : list.toArray(new int[0][]);
     }
 
@@ -82,15 +82,7 @@ public class Sort_Array {
             int mid=(l+r)/2;
             mergeSort(unsorted,choice,l,mid);
             mergeSort(unsorted,choice,mid+1,r);
-            int[] left=new int[mid-l+1];
-            int[] right=new int[r-mid];
-            for (int i = 0; i < left.length ; i++) {
-                left[i]=unsorted[i+l];
-            }
-            for (int i = 0; i < right.length ; i++) {
-                right[i]=unsorted[i+mid+1];
-            }
-            merge(unsorted,left,right,l);
+            merge(unsorted,l,mid,r);
             if(!choice)
                 list.add(unsorted.clone());
         }
@@ -100,7 +92,15 @@ public class Sort_Array {
             return unsorted;
     }
 
-    private void merge(int[] unsorted,int[] left,int[] right,int l) {
+    private void merge(int[] unsorted,int l,int mid,int r) {
+        int[] left=new int[mid-l+1];
+        int[] right=new int[r-mid];
+        for (int i = 0; i < left.length ; i++) {
+            left[i]=unsorted[i+l];
+        }
+        for (int i = 0; i < right.length ; i++) {
+            right[i]=unsorted[i+mid+1];
+        }
         int nl= left.length;
         int nr= right.length;
         int k=l,i=0,j=0;

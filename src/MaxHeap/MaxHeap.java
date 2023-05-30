@@ -76,13 +76,13 @@ public class MaxHeap {
      * heap sort in O(n lg n)
      * @param arr to sort it in place.
      */
-    public static void HeapSort(int[] arr, List<int[]> steps) {
+    public static void HeapSort(int[] arr, List<int[]> steps,boolean choice) {
         steps.add(arr.clone());
         if (arr.length == 0 || arr.length == 1) return;
         MaxHeap maxHeap = new MaxHeap(arr);
         for(int i=0 ; i < arr.length ; i++){
             maxHeap.extractMax();
-            steps.add(arr.clone());
+            if(!choice) steps.add(arr.clone());
         }
     }
 
