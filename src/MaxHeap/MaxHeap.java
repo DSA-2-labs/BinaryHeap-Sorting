@@ -77,7 +77,6 @@ public class MaxHeap {
      * @param arr to sort it in place.
      */
     public static void HeapSort(int[] arr, List<int[]> steps, boolean inter) {
-        steps.add(arr.clone());
         if (arr.length == 0 || arr.length == 1) return;
         MaxHeap maxHeap = new MaxHeap(arr);
         for(int i=0 ; i < arr.length ; i++){
