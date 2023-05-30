@@ -1,19 +1,13 @@
 package Testing;
 
-import FileReader.Freader;
 import Sorting.Sort_Array;
 import org.junit.Test;
-
-import java.util.Arrays;
-
-import static org.junit.Assert.assertArrayEquals;
 
 public class TimeAnalysis {
     private final String test = "/home/exception/Heap/";
     private Sort_Array sorting;
     @Test
-    public void countingSort()
-    {
+    public void countingSort() {
         sorting = new Sort_Array(test + "worst-10.txt");
         long start = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -143,8 +137,7 @@ public class TimeAnalysis {
         System.out.println("best-1000000 case counting sort: " + (((end3-start3)/40)*0.001) + " ms");
     }
     @Test
-    public void Merge_Sort()
-    {
+    public void Merge_Sort() {
         sorting = new Sort_Array(test + "worst-10.txt");
         long start = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -274,8 +267,7 @@ public class TimeAnalysis {
         System.out.println("best-1000000 case merge sort: " + (((end3-start3)/40)*0.001) + " ms");
     }
     @Test
-    public void bubbleSort()
-    {
+    public void bubbleSort() {
         sorting = new Sort_Array(test + "worst-10.txt");
         long start = System.nanoTime();
         for(int i = 0; i < 40; i++)
