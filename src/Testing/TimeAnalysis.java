@@ -609,8 +609,7 @@ public class TimeAnalysis {
     }
 
     @Test
-    public void All()
-    {
+    public void All() {
         sorting = new Sort_Array(test + "avg-10.txt");
         long start1 = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -825,228 +824,233 @@ public class TimeAnalysis {
     }
 
     @Test
-    public void comp() {
-        sorting = new Sort_Array(test + "comp-10.txt");
+    public void c() {
+        sorting = new Sort_Array(test + "c-10.txt");
 
         long start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.simpleSort(true);
         long end = System.nanoTime();
-        System.out.println("comp-10 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-10 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.heapSort(true);
         end = System.nanoTime();
-        System.out.println("comp-10 case heap sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-10 case heap sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.efficientSort(true);
         end = System.nanoTime();
-        System.out.println("comp-10 case merge sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-10 case merge sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
-        System.out.println("comp-10 case counting sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-10 case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
         System.out.println();
 //-------------------------------------------------------------------------------------------------------
 
-        sorting = new Sort_Array(test + "comp-100.txt");
+        sorting = new Sort_Array(test + "c-100.txt");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.simpleSort(true);
         end = System.nanoTime();
-        System.out.println("comp-100 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-100 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.heapSort(true);
         end = System.nanoTime();
-        System.out.println("comp-100 case heap sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-100 case heap sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.efficientSort(true);
         end = System.nanoTime();
-        System.out.println("comp-100 case merge sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-100 case merge sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
-        System.out.println("comp-100 case counting sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-100 case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
         System.out.println();
         //----------------------------------------------------------------------------------------------
 
-        sorting = new Sort_Array(test + "comp-1k.txt");
+        sorting = new Sort_Array(test + "c-1k.txt");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.simpleSort(true);
         end = System.nanoTime();
-        System.out.println("comp-1k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-1k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.heapSort(true);
         end = System.nanoTime();
-        System.out.println("comp-1k case heap sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-1k case heap sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.efficientSort(true);
         end = System.nanoTime();
-        System.out.println("comp-1k case merge sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-1k case merge sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
-        System.out.println("comp-1k case counting sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-1k case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
         System.out.println();
         //--------------------------------------------------------------------------------
 
-        sorting = new Sort_Array(test + "comp-10k.txt");
+        sorting = new Sort_Array(test + "c-10k.txt");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.simpleSort(true);
+        end = System.nanoTime();
+        System.out.println("c-10k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.heapSort(true);
+        end = System.nanoTime();
+        System.out.println("c-10k case heap sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.efficientSort(true);
+        end = System.nanoTime();
+        System.out.println("c-10k case merge sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.nonComparisonSort(true);
+        end = System.nanoTime();
+        System.out.println("c-10k case counting sort: " + (((end-start)/40)*0.001) + " ms");
+
+        System.out.println();
+        //--------------------------------------------------------------------------------
+
+        sorting = new Sort_Array(test + "c-50k.txt");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.simpleSort(true);
+        end = System.nanoTime();
+        System.out.println("c-50k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.heapSort(true);
+        end = System.nanoTime();
+        System.out.println("c-50k case heap sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.efficientSort(true);
+        end = System.nanoTime();
+        System.out.println("c-50k case merge sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.nonComparisonSort(true);
+        end = System.nanoTime();
+        System.out.println("c-50k case counting sort: " + (((end-start)/40)*0.001) + " ms");
+
+        System.out.println();
+        //--------------------------------------------------------------------------------
+
+        sorting = new Sort_Array(test + "c-100k.txt");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.simpleSort(true);
+        end = System.nanoTime();
+        System.out.println("c-100k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.heapSort(true);
+        end = System.nanoTime();
+        System.out.println("c-100k case heap sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.efficientSort(true);
+        end = System.nanoTime();
+        System.out.println("c-100k case merge sort: " + (((end-start)/40)*0.001) + " ms");
+
+        start = System.nanoTime();
+        for(int i = 0; i < 40; i++)
+            sorting.nonComparisonSort(true);
+        end = System.nanoTime();
+        System.out.println("c-100k case counting sort: " + (((end-start)/40)*0.001) + " ms");
+
+        System.out.println();
+        //--------------------------------------------------------------------------------
+
+        sorting = new Sort_Array(test + "c-500k.txt");
 
 //        start = System.nanoTime();
 //        for(int i = 0; i < 40; i++)
 //            sorting.simpleSort(true);
 //        end = System.nanoTime();
-//        System.out.println("comp-10k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+//        System.out.println("c-500k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.heapSort(true);
         end = System.nanoTime();
-        System.out.println("comp-10k case heap sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-500k case heap sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.efficientSort(true);
         end = System.nanoTime();
-        System.out.println("comp-10k case merge sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-500k case merge sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
-        System.out.println("comp-10k case counting sort: " + (((end-start)/40)*0.001) + " ms");
-
+        System.out.println("c-500k case counting sort: " + (((end-start)/40)*0.001) + " ms");
         System.out.println();
         //--------------------------------------------------------------------------------
 
-        sorting = new Sort_Array(test + "comp-50k.txt");
+        sorting = new Sort_Array(test + "c-1M.txt");
 
 //        start = System.nanoTime();
 //        for(int i = 0; i < 40; i++)
 //            sorting.simpleSort(true);
 //        end = System.nanoTime();
-//        System.out.println("comp-50k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.heapSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-50k case heap sort: " + (((end-start)/40)*0.001) + " ms");
-
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.efficientSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-50k case merge sort: " + (((end-start)/40)*0.001) + " ms");
-
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.nonComparisonSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-50k case counting sort: " + (((end-start)/40)*0.001) + " ms");
-
-        System.out.println();
-        //--------------------------------------------------------------------------------
-
-        sorting = new Sort_Array(test + "comp-100k.txt");
-
-//        start = System.nanoTime();
-//        for(int i = 0; i < 40; i++)
-//            sorting.simpleSort(true);
-//        end = System.nanoTime();
-//        System.out.println("comp-100k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.heapSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-100k case heap sort: " + (((end-start)/40)*0.001) + " ms");
-
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.efficientSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-100k case merge sort: " + (((end-start)/40)*0.001) + " ms");
-
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.nonComparisonSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-100k case counting sort: " + (((end-start)/40)*0.001) + " ms");
-
-        System.out.println();
-        //--------------------------------------------------------------------------------
-
-        sorting = new Sort_Array(test + "comp-500k.txt");
-
-//        start = System.nanoTime();
-//        for(int i = 0; i < 40; i++)
-//            sorting.simpleSort(true);
-//        end = System.nanoTime();
-//        System.out.println("comp-500k case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+//        System.out.println("c-1M case bubble sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.heapSort(true);
         end = System.nanoTime();
-        System.out.println("comp-500k case heap sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-1M case heap sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.efficientSort(true);
         end = System.nanoTime();
-        System.out.println("comp-500k case merge sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-1M case merge sort: " + (((end-start)/40)*0.001) + " ms");
 
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
-        System.out.println("comp-500k case counting sort: " + (((end-start)/40)*0.001) + " ms");
-        System.out.println();
-        //--------------------------------------------------------------------------------
-
-        sorting = new Sort_Array(test + "comp-1M.txt");
-
-//        start = System.nanoTime();
-//        for(int i = 0; i < 40; i++)
-//            sorting.simpleSort(true);
-//        end = System.nanoTime();
-//        System.out.println("comp-1M case bubble sort: " + (((end-start)/40)*0.001) + " ms");
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.heapSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-1M case heap sort: " + (((end-start)/40)*0.001) + " ms");
-
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.efficientSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-1M case merge sort: " + (((end-start)/40)*0.001) + " ms");
-
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.nonComparisonSort(true);
-        end = System.nanoTime();
-        System.out.println("comp-1M case counting sort: " + (((end-start)/40)*0.001) + " ms");
+        System.out.println("c-1M case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
         System.out.println();
         //--------------------------------------------------------------------------------
