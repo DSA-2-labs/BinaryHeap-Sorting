@@ -245,4 +245,41 @@ public class Tests {
     }
 
     //worst for bubble & merge
+    ///////////////////
+    //worst for Merge
+    @Test
+    public void test25(){
+        sorting = new Sort_Array(d+"Test1000000.txt");
+        expected = Freader.read(d+"output1000000.txt");
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+    }
+    @Test
+    public void test26(){
+        sorting = new Sort_Array(d+"Test100000.txt");
+        expected = Freader.read(d+"output100000.txt");
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+    }
+    public void test27(){
+        sorting = new Sort_Array(d+"Test10000.txt");
+        expected = Freader.read(d+"output10000.txt");
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+    }
+    public void test28(){
+        sorting = new Sort_Array(d+"Test1000.txt");
+        expected = Freader.read(d+"output1000.txt");
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+    }
+    public void test29(){
+        sorting = new Sort_Array(d+"Test100.txt");
+        expected = Freader.read(d+"output100.txt");
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+    }
+    public void test30(){
+        sorting = new Sort_Array(d+"Test10.txt");
+        expected = Freader.read(d+"output10.txt");
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+    }
+
+
+
 }
