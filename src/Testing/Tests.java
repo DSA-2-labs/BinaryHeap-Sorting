@@ -7,10 +7,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertArrayEquals;
 
 public class Tests {
-    //private final String test = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\tests\\";
-    private final String test = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/";
-    //private final String expect = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\Expected\\";
-    private final String expect = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/Expected/";
+    private final String test = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\tests\\";
+    private final String d = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\";
+//    private final String test = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/";
+    private final String expect = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\Expected\\";
+//    private final String expect = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/Expected/";
     private int[] expected;
 
     private Sort_Array sorting;
@@ -214,6 +215,29 @@ public class Tests {
     {
         sorting=new Sort_Array(test +"single.txt");
         expected = Freader.read(expect +"exsingle.txt");
+        assertArrayEquals(expected,(int[])sorting.simpleSort(true));
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
+        assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+    }
+
+
+    @Test
+    public void test23()
+    {
+        sorting=new Sort_Array(d +"sort1.txt");
+        expected = Freader.read(d +"output1.txt");
+        assertArrayEquals(expected,(int[])sorting.simpleSort(true));
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
+        assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+    }
+
+    @Test
+    public void test24()
+    {
+        sorting=new Sort_Array(d +"sort2.txt");
+        expected = Freader.read(d +"output2.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
         assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));
