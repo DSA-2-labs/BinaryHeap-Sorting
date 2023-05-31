@@ -10,10 +10,10 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class TimeAnalysis {
 //    private final String test = "/home/exception/Heap/";
-    //private final String test = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\";
-    private final String test = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/src/Testing/";
+    private final String test = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\";
+//    private final String test = "/home/mahmoud/IdeaProjects/BinaryHeap-Sorting/src/Testing/";
     private final String heap = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\heap\\";
-    private final String bubbleMerge = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\heap\\bm\\";
+    private final String bubbleMerge = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\bm\\";
     private Sort_Array sorting;
     private int[] expected;
     @Test
@@ -322,7 +322,7 @@ public class TimeAnalysis {
         System.out.println("best-1000 case merge sort: " + (((end3-start3)/40)*0.001) + " ms");
 
         sorting = new Sort_Array(bubbleMerge + "best-10000.txt");
-        expected = Freader.read(bubbleMerge + "exbest-1000.txt");
+        expected = Freader.read(bubbleMerge + "exbest-10000.txt");
         assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -331,7 +331,7 @@ public class TimeAnalysis {
         System.out.println("best-10000 case merge sort: " + (((end3-start3)/40)*0.001) + " ms");
 
         sorting = new Sort_Array(bubbleMerge + "best-100000.txt");
-        expected = Freader.read(bubbleMerge + "exbest-1000.txt");
+        expected = Freader.read(bubbleMerge + "exbest-100000.txt");
         assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -340,7 +340,7 @@ public class TimeAnalysis {
         System.out.println("best-100000 case merge sort: " + (((end3-start3)/40)*0.001) + " ms");
 
         sorting = new Sort_Array(bubbleMerge + "best-1000000.txt");
-        expected = Freader.read(bubbleMerge + "exbest-1000.txt");
+        expected = Freader.read(bubbleMerge + "exbest-1000000.txt");
         assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -350,8 +350,8 @@ public class TimeAnalysis {
     }
     @Test
     public void bubbleSort() {
-        sorting = new Sort_Array(test + "worst-10.txt");
-        expected = Freader.read(test+"exworst-10.txt");
+        sorting = new Sort_Array(bubbleMerge + "worst-10.txt");
+        expected = Freader.read(bubbleMerge+"exworst-10.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
         long start = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -359,46 +359,46 @@ public class TimeAnalysis {
         long end = System.nanoTime();
         System.out.println("worst-10 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-100.txt");
-        expected = Freader.read(test+"exworst-100.txt");
+        sorting = new Sort_Array(bubbleMerge + "worst-100.txt");
+        expected = Freader.read(bubbleMerge+"exworst-100.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end = System.nanoTime();
-        System.out.println("worst-100 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+//        start = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end = System.nanoTime();
+//        System.out.println("worst-100 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-1000.txt");
-        expected = Freader.read(test+"exworst-1000.txt");
+        sorting = new Sort_Array(bubbleMerge + "worst-1000.txt");
+        expected = Freader.read(bubbleMerge+"exworst-1000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end = System.nanoTime();
-        System.out.println("worst-1000 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+//        start = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end = System.nanoTime();
+//        System.out.println("worst-1000 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-10000.txt");
-        expected = Freader.read(test+"exworst-10000.txt");
+        sorting = new Sort_Array(bubbleMerge + "worst-10000.txt");
+        expected = Freader.read(bubbleMerge+"exworst-10000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end = System.nanoTime();
-        System.out.println("worst-10000 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+//        start = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end = System.nanoTime();
+//        System.out.println("worst-10000 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-100000.txt");
-        expected = Freader.read(test+"exworst-100000.txt");
+        sorting = new Sort_Array(bubbleMerge + "worst-100000.txt");
+        expected = Freader.read(bubbleMerge+"exworst-100000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end = System.nanoTime();
-        System.out.println("worst-100000 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
+//        start = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end = System.nanoTime();
+//        System.out.println("worst-100000 case bubble sort: " + (((end-start)/40)*0.001) + " ms");
 
 
         //Average
-        sorting = new Sort_Array(test + "avg-10.txt");
-        expected = Freader.read(test+"exavg-10.txt");
+        sorting = new Sort_Array(bubbleMerge + "avg-10.txt");
+        expected = Freader.read(bubbleMerge+"exavg-10.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
         long start2 = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -406,47 +406,47 @@ public class TimeAnalysis {
         long end2 = System.nanoTime();
         System.out.println("avg-10 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-100.txt");
-        expected = Freader.read(test+"exavg-100.txt");
+        sorting = new Sort_Array(bubbleMerge + "avg-100.txt");
+        expected = Freader.read(bubbleMerge+"exavg-100.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start2 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end2 = System.nanoTime();
-        System.out.println("avg-100 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
+//        start2 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end2 = System.nanoTime();
+//        System.out.println("avg-100 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-1000.txt");
-        expected = Freader.read(test+"exavg-1000.txt");
+        sorting = new Sort_Array(bubbleMerge + "avg-1000.txt");
+        expected = Freader.read(bubbleMerge+"exavg-1000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start2 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end2 = System.nanoTime();
-        System.out.println("avg-1000 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
+//        start2 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end2 = System.nanoTime();
+//        System.out.println("avg-1000 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-10000.txt");
-        expected = Freader.read(test+"exavg-10000.txt");
+        sorting = new Sort_Array(bubbleMerge + "avg-10000.txt");
+        expected = Freader.read(bubbleMerge+"exavg-10000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start2 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end2 = System.nanoTime();
-        System.out.println("avg-10000 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
+//        start2 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end2 = System.nanoTime();
+//        System.out.println("avg-10000 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-100000.txt");
-        expected = Freader.read(test+"exavg-100000.txt");
+        sorting = new Sort_Array(bubbleMerge + "avg-100000.txt");
+        expected = Freader.read(bubbleMerge+"exavg-100000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start2 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end2 = System.nanoTime();
-        System.out.println("avg-100000 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
+//        start2 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end2 = System.nanoTime();
+//        System.out.println("avg-100000 case bubble sort: " + (((end2-start2)/40)*0.001) + " ms");
 
 
 //        System.out.println();
         //Best
-        sorting = new Sort_Array(test + "best-10.txt");
-        expected = Freader.read(test+"exbest-10.txt");
+        sorting = new Sort_Array(bubbleMerge + "best-10.txt");
+        expected = Freader.read(bubbleMerge+"exbest-10.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
         long start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
@@ -454,41 +454,41 @@ public class TimeAnalysis {
         long end3 = System.nanoTime();
         System.out.println("best-10 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-100.txt");
-        expected = Freader.read(test+"exbest-100.txt");
+        sorting = new Sort_Array(bubbleMerge + "best-100.txt");
+        expected = Freader.read(bubbleMerge+"exbest-100.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start3 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end3 = System.nanoTime();
-        System.out.println("best-100 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
+//        start3 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end3 = System.nanoTime();
+//        System.out.println("best-100 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-1000.txt");
-        expected = Freader.read(test+"exbest-1000.txt");
+        sorting = new Sort_Array(bubbleMerge + "best-1000.txt");
+        expected = Freader.read(bubbleMerge+"exbest-1000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start3 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end3 = System.nanoTime();
-        System.out.println("best-1000 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
+//        start3 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end3 = System.nanoTime();
+//        System.out.println("best-1000 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-10000.txt");
-        expected = Freader.read(test+"exbest-10000.txt");
+        sorting = new Sort_Array(bubbleMerge + "best-10000.txt");
+        expected = Freader.read(bubbleMerge+"exbest-10000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start3 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end3 = System.nanoTime();
-        System.out.println("best-10000 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
+//        start3 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end3 = System.nanoTime();
+//        System.out.println("best-10000 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-100000.txt");
-        expected = Freader.read(test+"exbest-100000.txt");
+        sorting = new Sort_Array(bubbleMerge + "best-100000.txt");
+        expected = Freader.read(bubbleMerge+"exbest-100000.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        start3 = System.nanoTime();
-        for(int i = 0; i < 40; i++)
-            sorting.simpleSort(true);
-        end3 = System.nanoTime();
-        System.out.println("best-100000 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
+//        start3 = System.nanoTime();
+//        for(int i = 0; i < 40; i++)
+//            sorting.simpleSort(true);
+//        end3 = System.nanoTime();
+//        System.out.println("best-100000 case bubble sort: " + (((end3-start3)/40)*0.001) + " ms");
 
     }
 
