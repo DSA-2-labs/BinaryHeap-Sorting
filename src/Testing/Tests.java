@@ -44,7 +44,7 @@ public class Tests {
         assertArrayEquals(expected,(int[])sorting.heapSort(true));
     }
     @Test
-    public void test4()// 40 elements contain negative ones
+    public void test4()// 50 elements contain negative ones
     {
         sorting=new Sort_Array(test + "test-50.txt");
         expected = Freader.read(expect + "extest-50.txt");
@@ -160,20 +160,20 @@ public class Tests {
     {
         sorting=new Sort_Array(test + "sorted.txt");
         expected = Freader.read(expect + "exsorted.txt");
-        assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
+        assertArrayEquals(expected,(int[])sorting.simpleSort(true));//best
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));//best
         assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));
-        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));//worst
     }
     @Test
     public void test17()//sorted descending array
     {
         sorting=new Sort_Array(test + "reversed.txt");
         expected = Freader.read( expect+ "exreversed.txt");
-        assertArrayEquals(expected,(int[])sorting.simpleSort(true));
-        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
+        assertArrayEquals(expected,(int[])sorting.simpleSort(true));//worst
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));//worst
         assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));
-        assertArrayEquals(expected,(int[])sorting.heapSort(true));
+        assertArrayEquals(expected,(int[])sorting.heapSort(true));//best
     }@Test
     public void test18()// negative elements only
     {
@@ -190,7 +190,7 @@ public class Tests {
         expected = Freader.read(expect + "exrepeatsingleElement.txt");
         assertArrayEquals(expected,(int[])sorting.simpleSort(true));
         assertArrayEquals(expected,(int[])sorting.efficientSort(true));
-        assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));
+        assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));//best
         assertArrayEquals(expected,(int[])sorting.heapSort(true));
     }@Test
     public void test20()// array with more than one element repeated
@@ -243,4 +243,6 @@ public class Tests {
         assertArrayEquals(expected,(int[])sorting.nonComparisonSort(true));
         assertArrayEquals(expected,(int[])sorting.heapSort(true));
     }
+
+    //worst for bubble & merge
 }
