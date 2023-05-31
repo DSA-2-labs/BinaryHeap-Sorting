@@ -1,52 +1,70 @@
 package Testing;
 
+import FileReader.Freader;
 import Sorting.Sort_Array;
 import org.junit.Test;
 
 import java.security.spec.RSAOtherPrimeInfo;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class TimeAnalysis {
 //    private final String test = "/home/exception/Heap/";
     private final String test = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\";
+    private final String heap = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\heap\\";
+    private final String bubbleMerge = "D:\\Data\\2nd year\\2nd term\\Data-Structure2\\labs\\Sort-test\\analysis\\heap\\bm\\";
     private Sort_Array sorting;
+    private int[] expected;
     @Test
     public void countingSort() {
-        sorting = new Sort_Array(test + "worst-10.txt");
+        sorting = new Sort_Array(test + "counting\\worst-10.txt");
+        expected = Freader.read(test + "counting\\worst-exp-10.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         long start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         long end = System.nanoTime();
         System.out.println("worst-10 case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-100.txt");
+        sorting = new Sort_Array(test + "counting\\worst-100.txt");
+        expected = Freader.read(test + "counting\\worst-exp-100.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
         System.out.println("worst-100 case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-1000.txt");
+        sorting = new Sort_Array(test + "counting\\worst-1000.txt");
+        expected = Freader.read(test + "counting\\worst-exp-1000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
         System.out.println("worst-1000 case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-10000.txt");
+        sorting = new Sort_Array(test + "counting\\worst-10000.txt");
+        expected = Freader.read(test + "counting\\worst-exp-10000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
         System.out.println("worst-10000 case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-100000.txt");
+        sorting = new Sort_Array(test + "counting\\worst-100000.txt");
+        expected = Freader.read(test + "counting\\worst-exp-100000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end = System.nanoTime();
         System.out.println("worst-100000 case counting sort: " + (((end-start)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "worst-1000000.txt");
+        sorting = new Sort_Array(test + "counting\\worst-1000000.txt");
+        expected = Freader.read(test + "counting\\worst-exp-1000000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
@@ -54,42 +72,54 @@ public class TimeAnalysis {
         System.out.println("worst-1000000 case counting sort: " + (((end-start)/40)*0.001) + " ms");
         System.out.println();
 
-        sorting = new Sort_Array(test + "avg-10.txt");
+        sorting = new Sort_Array(test + "counting\\avg-10.txt");
+        expected = Freader.read(test + "counting\\avg-exp-10.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         long start2 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         long end2 = System.nanoTime();
         System.out.println("avg-10 case counting sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-100.txt");
+        sorting = new Sort_Array(test + "counting\\avg-100.txt");
+        expected = Freader.read(test + "counting\\avg-exp-100.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start2 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end2 = System.nanoTime();
         System.out.println("avg-100 case counting sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-1000.txt");
+        sorting = new Sort_Array(test + "counting\\avg-1000.txt");
+        expected = Freader.read(test + "counting\\avg-exp-1000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start2 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end2 = System.nanoTime();
         System.out.println("avg-1000 case counting sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-10000.txt");
+        sorting = new Sort_Array(test + "counting\\avg-10000.txt");
+        expected = Freader.read(test + "counting\\avg-exp-10000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start2 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end2 = System.nanoTime();
         System.out.println("avg-10000 case counting sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-100000.txt");
+        sorting = new Sort_Array(test + "counting\\avg-100000.txt");
+        expected = Freader.read(test + "counting\\avg-exp-100000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start2 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end2 = System.nanoTime();
         System.out.println("avg-100000 case counting sort: " + (((end2-start2)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "avg-1000000.txt");
+        sorting = new Sort_Array(test + "counting\\avg-1000000.txt");
+        expected = Freader.read(test + "counting\\avg-exp-1000000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start2 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
@@ -97,42 +127,54 @@ public class TimeAnalysis {
         System.out.println("avg-1000000 case counting sort: " + (((end2-start2)/40)*0.001) + " ms");
         System.out.println();
 
-        sorting = new Sort_Array(test + "best-10.txt");
+        sorting = new Sort_Array(test + "counting\\best-10.txt");
+        expected = Freader.read(test + "counting\\best-exp-10.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         long start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         long end3 = System.nanoTime();
         System.out.println("best-10 case counting sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-100.txt");
+        sorting = new Sort_Array(test + "counting\\best-100.txt");
+        expected = Freader.read(test + "counting\\best-exp-100.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end3 = System.nanoTime();
         System.out.println("best-100 case counting sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-1000.txt");
+        sorting = new Sort_Array(test + "counting\\best-1000.txt");
+        expected = Freader.read(test + "counting\\best-exp-1000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end3 = System.nanoTime();
         System.out.println("best-1000 case counting sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-10000.txt");
+        sorting = new Sort_Array(test + "counting\\best-10000.txt");
+        expected = Freader.read(test + "counting\\best-exp-10000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end3 = System.nanoTime();
         System.out.println("best-10000 case counting sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-100000.txt");
+        sorting = new Sort_Array(test + "counting\\best-100000.txt");
+        expected = Freader.read(test + "counting\\best-exp-100000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
         end3 = System.nanoTime();
         System.out.println("best-100000 case counting sort: " + (((end3-start3)/40)*0.001) + " ms");
 
-        sorting = new Sort_Array(test + "best-1000000.txt");
+        sorting = new Sort_Array(test + "counting\\best-1000000.txt");
+        expected = Freader.read(test + "counting\\best-exp-1000000.txt");
+        assertArrayEquals(expected,(int[])sorting.efficientSort(true));
         start3 = System.nanoTime();
         for(int i = 0; i < 40; i++)
             sorting.nonComparisonSort(true);
@@ -1055,6 +1097,7 @@ public class TimeAnalysis {
         System.out.println();
         //--------------------------------------------------------------------------------
     }
+    @Test
     public void HeapSort(){
         long currentTimeMillis = System.currentTimeMillis();
         for(int i=0 ; i<40 ; i++) {
